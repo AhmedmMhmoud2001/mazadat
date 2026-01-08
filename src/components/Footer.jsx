@@ -32,10 +32,10 @@ const Footer = () => {
             <div className="h-16 w-16 rounded-xl  flex items-center justify-center ">
               <img src={logo} alt="مزادات أبوظبي" className=" object-contain" />
             </div>
-            <p className="text-sm text-white/70">
+            <p className="text-sm text-white">
               لوريم إيبسوم دولار سيت أميت كونسيكتتور أديسبسكينغ إيليت.
             </p>
-            <div className="flex items-center gap-3 text-white/70">
+            <div className="flex items-center gap-3 text-white">
               <FaFacebookF />
               <FaTwitter />
               <FaInstagram />
@@ -45,8 +45,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg mb-4">اتصل بنا</h4>
-            <div className="space-y-3 text-sm text-white/70">
+            <h4 className="text-lg text-white mb-4">اتصل بنا</h4>
+            <div className="space-y-3 text-sm text-white">
               <div className="flex items-center gap-2">
                 <FiMail />
                 contact@company.com
@@ -67,8 +67,8 @@ const Footer = () => {
             .reverse()
             .map((column) => (
               <div key={column.title}>
-                <h4 className="text-lg mb-4">{column.title}</h4>
-                <ul className="space-y-2 text-sm text-white/70">
+                <h4 className="text-lg text-white mb-4">{column.title}</h4>
+                <ul className="space-y-2 text-sm text-white">
                   {column.links.map((link) => (
                     <li key={link}>{link}</li>
                   ))}
@@ -78,13 +78,14 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 mt-10 pt-6 text-xs text-white/50 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+          
+          <div>جميع الحقوق محفوظة | الشروط والأحكام | سياسة الخصوصية</div>
           <div>
             All Rights Reserved © Designed by{" "}
             <a href="//www.qeematech.net/" rel="dofollow" className="text-white">
               Qeematech
             </a>
           </div>
-          <div>جميع الحقوق محفوظة | الشروط والأحكام | سياسة الخصوصية</div>
         </div>
       </div>
     </footer>

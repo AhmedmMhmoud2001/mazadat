@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Tabs from "../components/Tabs";
 import DashboardSidebar from "../components/DashboardSidebar";
 import ToggleSwitch from "../components/ToggleSwitch";
+import { logout } from "../data/authStore";
 
 const settingsTabs = [
   { key: "profile", label: "الملف الشخصي" },
@@ -11,7 +13,13 @@ const settingsTabs = [
 ];
 
 const Settings = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("profile");
+
+  const handleLogout = () => {
+    logout();
+    navigate("/", { replace: true });
+  };
 
   return (
     <section className="mx-auto max-w-6xl px-4 grid gap-6 lg:grid-cols-[1fr_320px]">
@@ -107,12 +115,14 @@ const Settings = () => {
             <button className="btn-gold w-fit">تحديث كلمة المرور</button>
 
             <div className="text-lg font-semibold">الجلسات النشطة</div>
-            <div className="bg-white/70 rounded-2xl p-4 flex items-center justify-between">
+            <div className="bg-white/70 rounded-2xl p-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <div className="font-semibold">الجهاز الحالي</div>
                 <div className="text-sm text-muted">windows</div>
               </div>
-              <button className="btn-outline px-4 py-2">تسجيل الخروج</button>
+              <button className="btn-outline px-4 py-2" onClick={handleLogout}>
+                تسجيل الخروج
+              </button>
             </div>
           </div>
         )}
