@@ -35,7 +35,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsMobileOpen(false);
-  }, [location.pathname, location.hash]);
+  }, [location.pathname, location.hash,setIsMobileOpen]);
 
   return (
     <nav className="sticky top-4 z-50">

@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import authBg from "../assets/login(2).png";
-import logo from "../assets/ChatGPT Image Sep 20, 2025, 12_03_45 PM 1.png";
+import logo from "../assets/right-bg-overlay (1).png";
 import { register } from "../data/authStore";
 
 const AuthRegister = () => {
@@ -43,8 +42,8 @@ const AuthRegister = () => {
   return (
     <section className="mx-auto max-w-6xl px-4">
       <div
-        className="relative overflow-hidden rounded-[2.5rem] bg-cover bg-center shadow-soft p-10 md:p-14"
-        style={{ backgroundImage: `url(${authBg})` }}
+        className="relative overflow-hidden rounded-[2.5rem] p-10 md:p-14"
+        
       >
         <div className="relative flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
           <div className="flex-1 flex items-center justify-center">

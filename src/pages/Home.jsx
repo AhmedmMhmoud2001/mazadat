@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaGavel } from "react-icons/fa";
 import { FiShield, FiZap, FiAward, FiTruck, FiCheckCircle } from "react-icons/fi";
-import heroBg from "../assets/login(2).png";
+import heroBg from "../assets/login2.png";
 import SectionTitle from "../components/SectionTitle";
 import StatCard from "../components/StatCard";
 import CategoryCard from "../components/CategoryCard";
