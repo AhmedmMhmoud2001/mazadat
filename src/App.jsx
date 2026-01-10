@@ -1,8 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 import Auctions from "./pages/Auctions";
 import AuctionDetails from "./pages/AuctionDetails";
+import LiveAuction from "./pages/LiveAuction";
 import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
 import Payments from "./pages/Payments";
@@ -18,11 +20,13 @@ import AuthRegister from "./pages/AuthRegister";
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout/>}>
           <Route path="/" element={<Home />} />
           <Route path="/auctions" element={<Auctions />} />
           <Route path="/auctions/:id" element={<AuctionDetails />} />
+          <Route path="/auctions/:id/live" element={<LiveAuction />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/settings" element={<Settings />} />
         <Route path="/transactions" element={<Transactions />} />

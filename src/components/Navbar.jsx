@@ -20,7 +20,10 @@ const Navbar = () => {
   const isHomePage = location.pathname === "/";
   const isLoggedIn = Boolean(user);
   const isAuctionsPage = location.pathname.startsWith("/auctions");
-  const showLoginCta = !isLoggedIn && !isAuthPage && (isHomePage || isAuctionsPage);
+  const isServicesPage = location.pathname === "/services";
+  const isAboutPage = location.pathname === "/about";
+  const isHelpPage = location.pathname === "/help";
+  const showLoginCta = !isLoggedIn && !isAuthPage && (isHomePage || isAuctionsPage || isServicesPage || isAboutPage || isHelpPage);
   const showSettings = isLoggedIn && !isAuthPage;
 
   const isActive = (item) => {

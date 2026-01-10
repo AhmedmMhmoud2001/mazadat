@@ -195,7 +195,7 @@ const AuctionDetails = () => {
             </div>
 
             {/* Seller Info */}
-            <div className="bg-[#F5F2EB] rounded-lg shadow-[0px_10px_50px_0px_rgba(0,0,0,0.1)] overflow-hidden">
+            <Link to="/dashboard" className="bg-[#F5F2EB] rounded-lg shadow-[0px_10px_50px_0px_rgba(0,0,0,0.1)] overflow-hidden block hover:shadow-xl transition-shadow cursor-pointer">
               <div className="p-4 border-b border-gray-200">
                 <h3 className="font-bold text-[22px] text-[#1C1C28] text-right">البائع</h3>
               </div>
@@ -203,10 +203,10 @@ const AuctionDetails = () => {
                 <BsCheckCircleFill className="w-10 h-10 text-green-500" />
                 <div className="flex gap-3">
                   <img className="h-10 w-10 rounded-full bg-gray-300 overflow-hidden" src="https://ui-avatars.com/api/?name=Seller&background=random" alt="Seller" />
-                  <p className="text-[#1C1C28] text-[20px] font-medium">اسم البائع</p>
+                  <p className="text-[#1C1C28] text-[20px] font-medium hover:text-[#9E7731] transition-colors">اسم البائع</p>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FiX } from "react-icons/fi";
 import DashboardSidebar from "../components/DashboardSidebar";
 import ToggleSwitch from "../components/ToggleSwitch";
 import { logout } from "../data/authStore";
@@ -133,37 +134,49 @@ const Settings = () => {
           {/* Security Tab */}
           {activeTab === "security" && (
             <div className="bg-white rounded-lg p-6 space-y-8">
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold text-[#1C1C28] text-right">تغيير كلمة المرور</h3>
-                <div className="space-y-3">
+              <div className="space-y-6">
+                <h3 className="text-[22px] font-bold text-[#1C1C28] text-right">تغيير كلمة المرور</h3>
+                <div className="space-y-4">
                   <div className="space-y-2">
-                    <label className="text-sm text-gray-600 text-right block">كلمة المرور الحالية</label>
-                    <input type="password" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-right" />
+                    <label className="text-[18px] font-bold text-[#1C1C28] text-right block">كلمة المرور الحالية</label>
+                    <input 
+                      type="password" 
+                      className="w-full border-[0.5px] border-[#1C1C28] rounded-lg px-4 py-3 h-[50px] text-right bg-white" 
+                    />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm text-gray-600 text-right block">كلمة المرور الجديدة</label>
-                    <input type="password" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-right" />
+                    <label className="text-[18px] font-bold text-[#1C1C28] text-right block">كلمة المرور الجديدة</label>
+                    <input 
+                      type="password" 
+                      className="w-full border-[0.5px] border-[#1C1C28] rounded-lg px-4 py-3 h-[50px] text-right bg-white" 
+                    />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm text-gray-600 text-right block">تأكيد كلمة المرور الجديدة</label>
-                    <input type="password" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-right" />
+                    <label className="text-[18px] font-bold text-[#1C1C28] text-right block">تأكيد كلمة المرور الجديدة</label>
+                    <input 
+                      type="password" 
+                      className="w-full border-[0.5px] border-[#1C1C28] rounded-lg px-4 py-3 h-[50px] text-right bg-white" 
+                    />
                   </div>
                 </div>
-                <button className="bg-[#9E7731] hover:bg-[#8A6629] text-white px-6 py-3 rounded-lg font-bold">
+                <button className="bg-[#9E7731] hover:bg-[#8A6629] text-white px-8 py-3 rounded-lg font-bold text-[18px]">
                   تحديث كلمة المرور
                 </button>
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-[#1C1C28] text-right">الجلسات النشطة</h3>
-                <p className="text-sm text-gray-600 text-right">إدارة الأجهزة المتصلة بحسابك</p>
-                <div className="bg-gray-50 rounded-lg p-4 flex items-center justify-between">
-                  <button className="text-red-600 hover:text-red-700 font-medium flex items-center gap-2" onClick={handleLogout}>
-                    <FiX className="w-4 h-4" />
+                <h3 className="text-[22px] font-bold text-[#1C1C28] text-right">الجلسات النشطة</h3>
+                <p className="text-[16px] text-gray-600 text-right">إدارة الأجهزة المتصلة بحسابك</p>
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-center justify-between">
+                  <button 
+                    className="text-[#1C1C28] hover:text-red-600 font-medium flex items-center gap-2 transition-colors" 
+                    onClick={handleLogout}
+                  >
+                    <FiX className="w-5 h-5" />
                   </button>
                   <div className="text-right">
-                    <div className="font-bold text-[#1C1C28]">الجهاز الحالي</div>
-                    <div className="text-sm text-gray-600">windows</div>
+                    <div className="font-bold text-[18px] text-[#1C1C28]">الجهاز الحالي</div>
+                    <div className="text-[14px] text-gray-600">windows</div>
                   </div>
                 </div>
               </div>

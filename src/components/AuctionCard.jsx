@@ -71,7 +71,7 @@ const AuctionCard = ({
         {/* Buttons Row */}
         <div className="flex items-center gap-3 pt-4">
           {isLive ? (
-            <Link to={`/auctions/${id}`} className="w-full py-2 rounded-lg bg-ink text-white font-bold hover:bg-ink/90 transition-colors text-center">
+            <Link to={`/auctions/${id}/live`} className="w-full py-2 rounded-lg bg-ink text-white font-bold hover:bg-ink/90 transition-colors text-center">
               {cta || "شارك"}
             </Link>
           ) : (

@@ -203,12 +203,6 @@ const Dashboard = () => {
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 mt-8">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-6">
-          <div></div>
-          <DashboardSidebar activeKey="dashboard" />
-        </div>
-      </div>
     </div>
   );
 };
