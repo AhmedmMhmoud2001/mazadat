@@ -3,16 +3,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { FiShield, FiZap, FiCheckCircle } from "react-icons/fi";
-import heroBg from "../assets/login2.png";
+
+import heroBg from "../assets/bghero.png";
 import heroMan from "../assets/arab-business-man-with-emotion-transparent-background 1.png";
 import SectionTitle from "../components/SectionTitle";
 import StatCard from "../components/StatCard";
 import CategoryCard from "../components/CategoryCard";
 import AuctionCard from "../components/AuctionCard";
 import imgcategory1 from "../assets/freepik__the-style-is-candid-image-photography-with-natural__91675 1.png";
-// import imgcategory2 from "../assets/phone.png";
-// import imgcategory3 from "../assets/furniture.png";
+import iconMedal from "../assets/solar_medal-ribbon-linear.svg";
+import iconSafety from "../assets/ant-design_safety-outlined.svg";
+import iconEnergy from "../assets/simple-line-icons_energy.svg";
 const stats = [
   { value: "20,000", label: "عضو نشط" },
   { value: "95%", label: "نسبة الرضا" },
@@ -262,19 +263,21 @@ const Home = () => {
       </section>
 
       <section className="bg-ink text-white">
-        <div className="mx-auto max-w-6xl px-4 py-10 grid gap-6 md:grid-cols-3 text-center">
-          <div className="flex flex-col items-center gap-3">
-            <FiCheckCircle className="text-3xl text-gold" />
-            <div className="font-semibold">منتجات أصلية</div>
+        <div className="mx-auto max-w-6xl px-4 py-16 grid gap-10 md:grid-cols-3 text-center">
+          <div className="flex flex-col items-center gap-5">
+            <img src={iconEnergy} alt="تحديثات فورية ومباشرة" className="w-14 h-14" />
+            <div className="font-semibold text-lg">تحديثات فورية ومباشرة</div>
           </div>
-          <div className="flex flex-col items-center gap-3">
-            <FiShield className="text-3xl text-gold" />
-            <div className="font-semibold">آمن وموثوق</div>
+          <div className="flex flex-col items-center gap-5">
+            <img src={iconSafety} alt="آمن وموثوق" className="w-16 h-16" />
+            <div className="font-semibold text-lg">آمن وموثوق</div>
           </div>
-          <div className="flex flex-col items-center gap-3">
-            <FiZap className="text-3xl text-gold" />
-            <div className="font-semibold">تحديثات فورية ومباشرة</div>
+          <div className="flex flex-col items-center gap-5">
+            <img src={iconMedal} alt="منتجات أصلية" className="w-16 h-16" />
+            <div className="font-semibold text-lg">منتجات أصلية</div>
           </div>
+
+
         </div>
       </section>
 
