@@ -1,10 +1,16 @@
-const CategoryCard = ({ title, subtitle }) => {
+import heroBg from "../assets/closeup-shot-vehicle-dry-field-cloudy-sky 1.png";
+
+const CategoryCard = ({ title, subtitle, img }) => {
   return (
-    <div className="section-card p-5 flex flex-col gap-3">
-      <div className="h-24 rounded-2xl bg-white/70" />
+    <div className="relative section-card p-5 flex flex-col gap-3 h-[200px]"
+      style={{
+        backgroundImage: `url(${heroBg})`,
+      }}>
+
       <div>
-        <h3 className="text-lg">{title}</h3>
-        <p className="text-sm">{subtitle}</p>
+        <img className="absolute bottom-0 left-0 z-10 w-20" src={img} alt="" />
+        <h3 className="text-2xl">{title}</h3>
+        <p className="text-lg">{subtitle}</p>
       </div>
     </div>
   );

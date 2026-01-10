@@ -1,76 +1,61 @@
-import { FiCalendar, FiClock, FiMapPin } from "react-icons/fi";
+import { FiCalendar, FiMapPin } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import StatusPill from "./StatusPill";
 import auctionFrame from "../assets/Frame 1171276970.png";
 
 const AuctionCard = ({
   title,
   category,
   location,
-  price,
   date,
   status,
-  cta,
 }) => {
-  const isLive = status?.key === "live";
-  const isUpcoming = status?.key === "upcoming";
-
   return (
-    <div className="bg-white border border-[#EBEBEB] rounded-3xl overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <div className="relative h-56 group cursor-pointer">
+    <div className=" rounded-2xl p-3 shadow-sm hover:shadow-md transition-shadow border border-[#E5E0D5]">
+      {/* Image Container with Status Badge */}
+      <div className="relative h-48 rounded-xl overflow-hidden mb-4">
         <img
           src={auctionFrame}
           alt={title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover sepia-[0.25] opacity-90"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        {status ? (
-          <div className="absolute top-4 right-4">
-            <StatusPill status={status.key} label={status.label} />
-          </div>
-        ) : null}
+        {/* Status Badge */}
+        <div className="absolute top-3 right-3 bg-[#F3F1EB] text-ink font-bold text-xs px-3 py-1 rounded-md shadow-sm">
+          {status?.label || "قادم"}
+        </div>
       </div>
 
-      <div className="p-5 space-y-4">
-        <div className="flex items-center justify-between">
-          <span className="font-bold text-lg text-[#1D1D1D]">{title}</span>
-          <span className="text-sm text-[#828282]">{category}</span>
-        </div>
-
-        <div className="flex items-center gap-2 text-sm text-[#828282]">
-          <FiMapPin className="text-[#969696]" />
-          <span>{location}</span>
-        </div>
-
-        <div className="flex items-center gap-2 text-sm">
-          <span className="text-[#828282]">يبدأ في:</span>
-          <div className="flex items-center gap-2 text-[#1D1D1D] font-medium">
-            <FiCalendar className="text-[#1D1D1D]" />
-            <span>{date}</span>
+      {/* Content */}
+      <div className="px-2 pb-2 space-y-4">
+        {/* Title and Category Row */}
+        <div className="flex justify-between items-start">
+          <div className="space-y-1">
+            <h3 className="font-bold text-xl text-ink">{title}</h3>
+            <div className="flex items-center gap-1 text-sm text-[#7D7D7D]">
+              <FiMapPin size={14} />
+              <span>{location}</span>
+            </div>
           </div>
+          <span className="text-[#333] font-semibold">{category}</span>
         </div>
 
-        <div className="flex items-center justify-between text-sm">
-          <span className="text-[#828282]">{price.includes('يبدأ') ? 'يبدأ من' : 'السعر الحالي'}</span>
-          {/* Note: The label might need adjustment based on exact text in image */}
+        {/* Date Row */}
+        <div className="flex justify-between items-center text-sm text-[#333] font-medium pt-2">
+          <div className="flex items-center gap-2">
+            <FiCalendar size={16} />
+            <span>يبدأ في: {date}</span>
+          </div>
+          <span>7:00 مساءً</span>
         </div>
-        <div className="text-xl font-bold text-[#1D1D1D]">{price}</div>
 
-        <div className="flex items-center gap-3 pt-2">
-          {isUpcoming ? (
-            <>
-              <button type="button" className="flex-1 py-2.5 rounded-xl border border-[#D0D0D0] text-[#1D1D1D] font-medium hover:bg-gray-50 transition-colors">
-                تذكير
-              </button>
-              <Link to="/auctions/1" className="flex-1 py-2.5 rounded-xl bg-[#242424] text-white font-medium hover:bg-[#333] transition-colors text-center">
-                {cta}
-              </Link>
-            </>
-          ) : (
-            <Link to="/auctions/1" className="flex-1 py-2.5 rounded-xl bg-[#242424] text-white font-medium hover:bg-[#333] transition-colors text-center">
-              {cta}
-            </Link>
-          )}
+        {/* Buttons Row */}
+        <div className="flex items-center gap-3 pt-4">
+          <Link to="/auctions/1" className="flex-[2] py-2 rounded-lg bg-ink text-white font-bold hover:bg-ink/90 transition-colors text-center">
+            التفاصيل
+          </Link>
+          <button className="flex-1 py-2 rounded-lg border border-[#7D7D7D] text-[#333] font-bold hover:bg-black/5 transition-colors">
+            تذكير
+          </button>
+
         </div>
       </div>
     </div>

@@ -1,4 +1,8 @@
 import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import { FiShield, FiZap, FiCheckCircle } from "react-icons/fi";
 import heroBg from "../assets/login2.png";
 import heroMan from "../assets/arab-business-man-with-emotion-transparent-background 1.png";
@@ -6,18 +10,23 @@ import SectionTitle from "../components/SectionTitle";
 import StatCard from "../components/StatCard";
 import CategoryCard from "../components/CategoryCard";
 import AuctionCard from "../components/AuctionCard";
-
+import imgcategory1 from "../assets/freepik__the-style-is-candid-image-photography-with-natural__91675 1.png";
+// import imgcategory2 from "../assets/phone.png";
+// import imgcategory3 from "../assets/furniture.png";
 const stats = [
-  { value: "24/7", label: "دعم العملاء" },
-  { value: "200", label: "مزاد شهرياً" },
-  { value: "95%", label: "نسبة الرضا" },
   { value: "20,000", label: "عضو نشط" },
+  { value: "95%", label: "نسبة الرضا" },
+  { value: "200", label: "مزاد شهرياً" },
+  { value: "24/7", label: "دعم العملاء" },
 ];
 
 const categories = [
-  { title: "سيارات", subtitle: "مزادات السيارات الفاخرة" },
-  { title: "هواتف", subtitle: "هواتف وأجهزة ذكية" },
-  { title: "أثاث", subtitle: "قطع منزلية نادرة" },
+  { title: "سيارات", subtitle: "مزادات السيارات الفاخرة", img: imgcategory1 },
+  { title: "هواتف", subtitle: "هواتف وأجهزة ذكية", img: imgcategory1 },
+  { title: "أثاث", subtitle: "قطع منزلية نادرة", img: imgcategory1 },
+  { title: "سيارات", subtitle: "مزادات السيارات الفاخرة", img: imgcategory1 },
+  { title: "هواتف", subtitle: "هواتف وأجهزة ذكية", img: imgcategory1 },
+  { title: "أثاث", subtitle: "قطع منزلية نادرة", img: imgcategory1 },
 ];
 
 const featuredAuctions = [
@@ -26,9 +35,27 @@ const featuredAuctions = [
     category: "سيارات",
     location: "أبو ظبي",
     price: "17,000,000 جنيه مصري",
-    date: "01:25:20",
-    status: { key: "live", label: "مباشر" },
-    cta: "شارك",
+    date: "15 فبراير 2024",
+    status: { key: "upcoming", label: "قادم" },
+    cta: "التفاصيل",
+  },
+  {
+    title: "اسم المنتج",
+    category: "سيارات",
+    location: "أبو ظبي",
+    price: "17,000,000 جنيه مصري",
+    date: "15 فبراير 2024",
+    status: { key: "upcoming", label: "قادم" },
+    cta: "التفاصيل",
+  },
+  {
+    title: "اسم المنتج",
+    category: "سيارات",
+    location: "أبو ظبي",
+    price: "17,000,000 جنيه مصري",
+    date: "15 فبراير 2024",
+    status: { key: "upcoming", label: "قادم" },
+    cta: "التفاصيل",
   },
   {
     title: "اسم المنتج",
@@ -78,6 +105,42 @@ const upcomingAuctions = [
     status: { key: "upcoming", label: "قادم" },
     cta: "التفاصيل",
   },
+  {
+    title: "اسم المنتج",
+    category: "سيارات",
+    location: "أبو ظبي",
+    price: "15,000,000 جنيه مصري",
+    date: "15 فبراير 2024",
+    status: { key: "upcoming", label: "قادم" },
+    cta: "التفاصيل",
+  },
+  {
+    title: "اسم المنتج",
+    category: "سيارات",
+    location: "أبو ظبي",
+    price: "15,000,000 جنيه مصري",
+    date: "15 فبراير 2024",
+    status: { key: "upcoming", label: "قادم" },
+    cta: "التفاصيل",
+  },
+  {
+    title: "اسم المنتج",
+    category: "سيارات",
+    location: "أبو ظبي",
+    price: "15,000,000 جنيه مصري",
+    date: "15 فبراير 2024",
+    status: { key: "upcoming", label: "قادم" },
+    cta: "التفاصيل",
+  },
+  {
+    title: "اسم المنتج",
+    category: "سيارات",
+    location: "أبو ظبي",
+    price: "15,000,000 جنيه مصري",
+    date: "15 فبراير 2024",
+    status: { key: "upcoming", label: "قادم" },
+    cta: "التفاصيل",
+  },
 ];
 
 const Home = () => {
@@ -92,23 +155,25 @@ const Home = () => {
 
           <div className="relative mx-auto max-w-6xl px-4">
             <div className="grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr]">
-              <div className="space-y-6">
-                <span className="text-gold font-semibold text-sm">
-                  اكتشف أفضل المزادات في أبوظبي
-                </span>
-                <h1 className="text-3xl sm:text-4xl leading-snug">
-                  منصة موثوقة للمزادات العقارية والسيارات والمقتنيات المميزة
+              <div className="space-y-8">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-ink">
+                  اكتشف أفضل المزادات <br className="hidden md:block" /> في أبوظبي
                 </h1>
-                <p className="text-ink/80">
-                  نوفر تجربة مزايدة شفافة ومرنة مع أدوات متابعة مباشرة ودعم متكامل
-                  حتى إتمام الصفقة.
+                <p className="text-ink/70 text-md sm:text-lg font-medium max-w-lg leading-relaxed">
+                  شارك في مزادات موثوقة وآمنة على السيارات، العقارات، والمقتنيات الثمينة - كل ذلك من مكان واحد.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Link to="/auctions" className="btn-primary">
-                    تصفح المزادات
-                  </Link>
-                  <Link to="/auth/login" className="btn-gold">
+                  <Link
+                    to="/auth/login"
+                    className="bg-ink text-white px-8 py-3 text-base font-bold rounded-md hover:bg-ink/90 transition shadow-lg"
+                  >
                     سجل الآن
+                  </Link>
+                  <Link
+                    to="/auctions"
+                    className="bg-[#C5A572] text-white px-8 py-3 text-base font-bold rounded-md hover:bg-[#b09360] transition shadow-lg"
+                  >
+                    تصفح المزادات
                   </Link>
                 </div>
               </div>
@@ -125,31 +190,75 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="mx-auto max-w-6xl px-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 py-20">
         {stats.map((stat) => (
           <StatCard key={stat.label} value={stat.value} label={stat.label} />
         ))}
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 space-y-8">
-        <SectionTitle
-          title="تصنيفات شائعة"
-          subtitle="استكشف أحدث المزادات حسب الفئات الأكثر طلباً."
-        />
-        <div className="grid gap-6 md:grid-cols-3">
-          {categories.map((category) => (
-            <CategoryCard key={category.title} {...category} />
+      <section className="mx-auto max-w-6xl px-4 space-y-8 ">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={24}
+          slidesPerView={1}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          // pagination={{ clickable: true, dynamicBullets: true }}
+          className="pb-12"
+        >
+          {categories.map((category, index) => (
+            <SwiperSlide key={index}>
+              <CategoryCard {...category} />
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 space-y-8">
+      <section className="mx-auto max-w-6xl px-4 space-y-8 my-20">
         <SectionTitle title="مزادات مميزة" />
-        <div className="grid gap-6 md:grid-cols-3">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={24}
+          slidesPerView={1}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+            1280: {
+              slidesPerView: 3,
+            },
+            1440: {
+              slidesPerView: 4,
+            },
+          }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          // pagination={{ clickable: true, dynamicBullets: true }}
+          className="pb-12"
+        >
           {featuredAuctions.map((auction, index) => (
-            <AuctionCard key={`${auction.title}-${index}`} {...auction} />
+            <SwiperSlide key={`${auction.title}-${index}`}>
+              <AuctionCard {...auction} />
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </section>
 
       <section className="bg-ink text-white">
@@ -169,13 +278,40 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 space-y-8">
+      <section className="mx-auto max-w-6xl px-4 space-y-8 my-20">
         <SectionTitle title="المزادات القادمة" />
-        <div className="grid gap-6 md:grid-cols-3">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={24}
+          slidesPerView={1}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+            1280: {
+              slidesPerView: 3,
+            },
+            1440: {
+              slidesPerView: 4,
+            },
+          }}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          // pagination={{ clickable: true, dynamicBullets: true }}
+          className="pb-12"
+        >
           {upcomingAuctions.map((auction, index) => (
-            <AuctionCard key={`${auction.title}-up-${index}`} {...auction} />
+            <SwiperSlide key={`${auction.title}-up-${index}`}>
+              <AuctionCard {...auction} />
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </section>
 
     </div>
