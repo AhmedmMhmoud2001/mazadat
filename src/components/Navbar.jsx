@@ -7,9 +7,9 @@ import { useAuth } from "../data/authStore";
 const navItems = [
   { label: "الرئيسية", to: "/" },
   { label: "المزادات", to: "/auctions" },
-  { label: "خدماتنا", to: "/#services", anchor: true },
-  { label: "من نحن", to: "/#about", anchor: true },
-  { label: "مساعدة", to: "/#support", anchor: true },
+  { label: "خدماتنا", to: "/services" },
+  { label: "من نحن", to: "/about" },
+  { label: "مساعدة", to: "/help" },
 ];
 
 const Navbar = () => {
@@ -35,25 +35,25 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsMobileOpen(false);
-  }, [location.pathname, location.hash,setIsMobileOpen]);
+  }, [location.pathname, location.hash, setIsMobileOpen]);
 
   return (
-    <nav className="sticky top-4 z-50">
+    <nav className="absolute left-0 right-0 top-4 z-50">
       <div className="mx-auto max-w-6xl px-4">
         <div className="pill-nav flex items-center justify-between px-8 py-3 shadow-lift">
-          
+
 
           <ul className="hidden lg:flex items-center justify-between gap-8 text-sm font-semibold w-full">
             <li>
               <Link to="/" className="flex items-center gap-3">
-            <div className="h-11 w-11 rounded-full bg-sand flex items-center justify-center p-1">
-              <img
-                src={logo}
-                alt="مزادات أبوظبي"
-                className="h-full w-full rounded-full object-cover"
-              />
-            </div>
-          </Link>
+                <div className="h-11 w-11 rounded-full bg-sand flex items-center justify-center p-1">
+                  <img
+                    src={logo}
+                    alt="مزادات أبوظبي"
+                    className="h-full w-full rounded-full object-cover"
+                  />
+                </div>
+              </Link>
             </li>
             {navItems.map((item) => {
               const active = isActive(item);
@@ -76,37 +76,37 @@ const Navbar = () => {
               );
             })}
             <li>
-               {showSettings ? (
-              <Link
-                to="/settings"
-                className="h-10 w-10 rounded-full border border-white/15 flex items-center justify-center text-white/80 hover:text-white transition"
-                aria-label="الإعدادات"
-              >
-                <FiSettings className="text-lg" />
-              </Link>
-            ) : showLoginCta ? (
-              <Link
-                to="/auth/login"
-                className="rounded-full border border-white/60 px-5 py-2 text-sm font-semibold text-white hover:bg-white/10 transition"
-              >
-                تسجيل الدخول
-              </Link>
-            ) : (
-              <div className="h-10 w-10" aria-hidden="true" />
-            )}
+              {showSettings ? (
+                <Link
+                  to="/settings"
+                  className="h-10 w-10 rounded-full border border-white/15 flex items-center justify-center text-white/80 hover:text-white transition"
+                  aria-label="الإعدادات"
+                >
+                  <FiSettings className="text-lg" />
+                </Link>
+              ) : showLoginCta ? (
+                <Link
+                  to="/auth/login"
+                  className="rounded-full border border-white/60 px-5 py-2 text-sm font-semibold text-white hover:bg-white/10 transition"
+                >
+                  تسجيل الدخول
+                </Link>
+              ) : (
+                <div className="h-10 w-10" aria-hidden="true" />
+              )}
             </li>
           </ul>
 
           <div className=" flex items-center justify-between lg:hidden w-full">
             <Link to="/" className="  flex items-center  gap-3">
-            <div className="h-11 w-11 rounded-full bg-sand flex items-center justify-center p-1">
-              <img
-                src={logo}
-                alt="مزادات أبوظبي"
-                className="h-full w-full rounded-full object-cover"
-              />
-            </div>
-           </Link>
+              <div className="h-11 w-11 rounded-full bg-sand flex items-center justify-center p-1">
+                <img
+                  src={logo}
+                  alt="مزادات أبوظبي"
+                  className="h-full w-full rounded-full object-cover"
+                />
+              </div>
+            </Link>
             <button
               type="button"
               className=" h-10 w-10 rounded-full border border-white/15 flex items-center justify-center text-white/80 hover:text-white transition"
@@ -117,24 +117,22 @@ const Navbar = () => {
             >
               <FiMenu className="text-lg" />
             </button>
-           
+
           </div>
         </div>
       </div>
 
       <div
-        className={`fixed inset-0 z-40 bg-black/40 transition-opacity lg:hidden ${
-          isMobileOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
+        className={`fixed inset-0 z-40 bg-black/40 transition-opacity lg:hidden ${isMobileOpen ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
         onClick={() => setIsMobileOpen(false)}
         aria-hidden="true"
       />
 
       <aside
         id="mobile-nav"
-        className={`fixed top-0 right-0 z-50 h-full w-72 bg-ink text-white shadow-lift transition-transform lg:hidden ${
-          isMobileOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 z-50 h-full w-72 bg-ink text-white shadow-lift transition-transform lg:hidden ${isMobileOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         aria-hidden={!isMobileOpen}
       >
         <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">

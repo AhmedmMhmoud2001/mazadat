@@ -25,9 +25,10 @@ const footerColumns = [
 ];
 
 const linkMap = {
-  "الميزات": "/#services",
-  "حول": "/#about",
-  "اتصل بنا": "/#support",
+  "الميزات": "/services",
+  "حول": "/about",
+  "اتصل بنا": "/help",
+  "مركز المساعدة": "/help",
 };
 
 const resolveFooterLink = (label) => linkMap[label] || "/";
