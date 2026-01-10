@@ -15,7 +15,7 @@ const generateAuctions = () => {
   // Live Auctions (12 items)
   for (let i = 1; i <= 12; i++) {
     items.push({
-      id: `live-${i}`,
+      id: i,
       title: "اسم المنتج",
       category: "سيارات",
       location: "أبو ظبي",
@@ -26,9 +26,9 @@ const generateAuctions = () => {
     });
   }
   // Upcoming Auctions (12 items)
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 13; i <= 24; i++) {
     items.push({
-      id: `upcoming-${i}`,
+      id: i,
       title: "اسم المنتج",
       category: "سيارات",
       location: "أبو ظبي",
@@ -39,9 +39,9 @@ const generateAuctions = () => {
     });
   }
   // Ended Auctions (12 items)
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 25; i <= 36; i++) {
     items.push({
-      id: `ended-${i}`,
+      id: i,
       title: "اسم المنتج",
       category: "سيارات",
       location: "أبو ظبي",

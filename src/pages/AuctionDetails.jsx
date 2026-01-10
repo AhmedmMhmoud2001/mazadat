@@ -13,6 +13,7 @@ const detailTabs = [
 
 const relatedAuctions = [
   {
+    id: 2,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -23,6 +24,7 @@ const relatedAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 3,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -33,6 +35,7 @@ const relatedAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 4,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -52,7 +55,7 @@ const AuctionDetails = () => {
       <div className="mx-auto max-w-7xl px-4 pt-32 pb-12 space-y-8">
 
         {/* Breadcrumb & Title */}
-        <div className="flex justify-end">
+        <div className="flex justify-start">
           <div className="text-right space-y-2">
             <div className="text-sm text-[#1C1C28] flex gap-2 justify-end">
               <span className="font-bold">تفاصيل المزاد</span>
@@ -93,7 +96,7 @@ const AuctionDetails = () => {
               </div>
 
               {/* Register Button */}
-              <Link to="/checkout" className="block w-full bg-[#9E7731] hover:bg-[#8A6629] text-[#F5F2EB] font-bold py-4 rounded-lg transition-all text-center text-[24px]">
+              <Link to="/register-auction" className="block w-full bg-[#9E7731] hover:bg-[#8A6629] text-[#F5F2EB] font-bold py-4 rounded-lg transition-all text-center text-[24px]">
                 النتسجيل في المزاد
               </Link>
 
@@ -111,7 +114,7 @@ const AuctionDetails = () => {
 
             {/* Trust & Safety */}
             <InfoCard title="الموثوقية و الأمان">
-              <div className="space-y-1 text-[#1C1C28] text-[18px] text-right leading-normal">
+              <div className="space-y-1 text-[#1C1C28] text-[18px] text-right leading-normal h-[200px]">
                 <p>لوريم ايبسوم دولار سيت أميت إنت</p>
                 <p>لوريم ايبسوم دولار سيت أميت</p>
                 <p>لوريم ايبسوم دولاشينج إكزيرس</p>
@@ -146,7 +149,7 @@ const AuctionDetails = () => {
 
             {/* Tabs & Content */}
             <div className="bg-[#F5F2EB] rounded-lg p-5 shadow-[0px_10px_50px_0px_rgba(0,0,0,0.1)] space-y-4">
-              <div className="flex gap-3 justify-end">
+              <div className="flex gap-3 justify-start">
                 {detailTabs.map(tab => (
                   <button
                     key={tab.key}
@@ -196,11 +199,11 @@ const AuctionDetails = () => {
               <div className="p-4 border-b border-gray-200">
                 <h3 className="font-bold text-[22px] text-[#1C1C28] text-right">البائع</h3>
               </div>
-              <div className="flex items-center justify-end gap-3 p-4">
+              <div className="flex flex-row-reverse items-center justify-between gap-3 p-4">
                 <BsCheckCircleFill className="w-10 h-10 text-green-500" />
-                <p className="text-[#1C1C28] text-[20px] font-medium">اسم البائع</p>
-                <div className="h-10 w-10 rounded-full bg-gray-300 overflow-hidden flex-shrink-0">
-                  <img src="https://ui-avatars.com/api/?name=Seller&background=random" alt="Seller" className="w-full h-full object-cover" />
+                <div className="flex gap-3">
+                  <img className="h-10 w-10 rounded-full bg-gray-300 overflow-hidden" src="https://ui-avatars.com/api/?name=Seller&background=random" alt="Seller" />
+                  <p className="text-[#1C1C28] text-[20px] font-medium">اسم البائع</p>
                 </div>
               </div>
             </div>
@@ -240,11 +243,12 @@ const DocItem = ({ title }) => (
 );
 
 const BidRow = ({ name, amount, currency, time }) => (
-  <div className="flex items-center justify-end gap-3 text-right">
-    <span className="text-[#D94B4B] text-[12px] font-bold">{time}</span>
+  <div className="flex items-center justify-start gap-3 text-right">
+    <span className="font-bold text-[#1C1C28]">{name}</span>
+   
     <div className="text-[18px]">
       <span className="text-[rgba(28,28,40,0.55)]">{amount} {currency} </span>
-      <span className="font-bold text-[#1C1C28]">{name}</span>
+      <span className="text-[#D94B4B] text-[12px] font-bold">{time}</span>
     </div>
   </div>
 );

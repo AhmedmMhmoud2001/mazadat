@@ -32,6 +32,7 @@ const categories = [
 
 const featuredAuctions = [
   {
+    id: 1,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -41,6 +42,7 @@ const featuredAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 2,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -50,6 +52,7 @@ const featuredAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 3,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -59,6 +62,7 @@ const featuredAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 4,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -68,6 +72,7 @@ const featuredAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 5,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -80,6 +85,7 @@ const featuredAuctions = [
 
 const upcomingAuctions = [
   {
+    id: 6,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -89,6 +95,7 @@ const upcomingAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 7,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -98,6 +105,7 @@ const upcomingAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 8,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -107,6 +115,7 @@ const upcomingAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 9,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -116,6 +125,7 @@ const upcomingAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 10,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -125,6 +135,7 @@ const upcomingAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 11,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",
@@ -134,6 +145,7 @@ const upcomingAuctions = [
     cta: "التفاصيل",
   },
   {
+    id: 12,
     title: "اسم المنتج",
     category: "سيارات",
     location: "أبو ظبي",

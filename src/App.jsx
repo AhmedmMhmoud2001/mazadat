@@ -8,6 +8,7 @@ import Settings from "./pages/Settings";
 import Payments from "./pages/Payments";
 import Transactions from "./pages/Transactions";
 import Checkout from "./pages/Checkout";
+import RegisterAuction from "./pages/RegisterAuction";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Help from "./pages/Help";
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/settings" element={<Settings />} />
         <Route path="/transactions" element={<Transactions />} />
         <Route path="/payments" element={<Payments />} />
+        <Route path="/register-auction" element={<RegisterAuction />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />

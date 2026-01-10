@@ -7,12 +7,33 @@ const Payments = () => {
   const [method, setMethod] = useState("card"); // 'card' or 'bank'
 
   return (
-    <section className="bg-[#FDFCF9] min-h-screen py-10 text-[#1D1D1D]">
+    <section className="bg-[#FDFCF9] min-h-screen py-32 text-[#1D1D1D]">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="grid lg:grid-cols-[1fr_20rem] gap-8">
+        <div className="grid lg:grid-cols-[1fr_44rem] gap-8">
+          
+          {/* Right Column (Summary) */}
+          <div className="order-2 lg:order-1 h-fit space-y-4">
+            <div className="bg-[#F8F8F8] border border-[#EBEBEB] rounded-3xl p-6 space-y-5">
+              <div className="flex justify-between items-center text-sm">
+                <span className="font-bold">التأمين (قابل للإسترداد)</span>
+                <span className="font-bold">10,000 جنيه مصري</span>
+              </div>
+              <div className="flex justify-between items-center text-sm">
+                <span className="font-bold">كراسة الشروط (غير قابلة للإسترداد)</span>
+                <span className="font-bold">2,000 جنيه مصري</span>
+              </div>
+              <div className="border-t border-[#E0E0E0] pt-4 flex justify-between items-center text-lg">
+                <span className="font-bold">إجمالي الدفع الآن</span>
+                <span className="font-bold">12,000 جنيه مصري</span>
+              </div>
 
+              <div className="bg-[#F3EAD8] text-[#977D48] rounded-xl p-4 text-xs font-bold leading-relaxed">
+                يسترد التأمين تلقائياً بعد نهاية المزاد في نفس اليوم في حالة عدم الفوز به
+              </div>
+            </div>
+          </div>
           {/* Main Content (Payment Form) */}
-          <div className="order-2 lg:order-1 bg-[#F8F8F8] border border-[#EBEBEB] rounded-3xl p-8 shadow-sm">
+          <div className="order-1 lg:order-2 bg-[#F8F8F8] border border-[#EBEBEB] rounded-3xl p-8 shadow-sm">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-xl font-bold hidden md:block">وبوابة الدفع</h2>
               <div className="bg-[#EBEBEB] p-1 rounded-xl flex items-center w-full md:w-auto">
@@ -127,27 +148,7 @@ const Payments = () => {
             )}
           </div>
 
-          {/* Right Column (Summary) */}
-          <div className="order-1 lg:order-2 h-fit space-y-4">
-            <div className="bg-[#F8F8F8] border border-[#EBEBEB] rounded-3xl p-6 space-y-5">
-              <div className="flex justify-between items-center text-sm">
-                <span className="font-bold">التأمين (قابل للإسترداد)</span>
-                <span className="font-bold">10,000 جنيه مصري</span>
-              </div>
-              <div className="flex justify-between items-center text-sm">
-                <span className="font-bold">كراسة الشروط (غير قابلة للإسترداد)</span>
-                <span className="font-bold">2,000 جنيه مصري</span>
-              </div>
-              <div className="border-t border-[#E0E0E0] pt-4 flex justify-between items-center text-lg">
-                <span className="font-bold">إجمالي الدفع الآن</span>
-                <span className="font-bold">12,000 جنيه مصري</span>
-              </div>
-
-              <div className="bg-[#F3EAD8] text-[#977D48] rounded-xl p-4 text-xs font-bold leading-relaxed">
-                يسترد التأمين تلقائياً بعد نهاية المزاد في نفس اليوم في حالة عدم الفوز به
-              </div>
-            </div>
-          </div>
+          
 
         </div>
       </div>

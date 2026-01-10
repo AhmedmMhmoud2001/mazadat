@@ -1,8 +1,9 @@
-import { FiGrid, FiCreditCard, FiSettings } from "react-icons/fi";
+import { FiGrid, FiCreditCard, FiSettings, FiClipboard } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const items = [
   { key: "dashboard", label: "لوحة التحكم", icon: FiGrid, to: "/dashboard" },
+  { key: "transactions", label: "المشاركات", icon: FiClipboard, to: "/transactions" },
   { key: "wallet", label: "المحفظة", icon: FiCreditCard, to: "/payments" },
   { key: "settings", label: "الإعدادات", icon: FiSettings, to: "/settings" },
 ];

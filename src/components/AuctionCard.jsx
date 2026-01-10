@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import auctionFrame from "../assets/Frame 1171276970.png";
 
 const AuctionCard = ({
+  id = "1",
   title,
   category,
   location,
@@ -70,12 +71,12 @@ const AuctionCard = ({
         {/* Buttons Row */}
         <div className="flex items-center gap-3 pt-4">
           {isLive ? (
-            <button className="w-full py-2 rounded-lg bg-ink text-white font-bold hover:bg-ink/90 transition-colors text-center">
+            <Link to={`/auctions/${id}`} className="w-full py-2 rounded-lg bg-ink text-white font-bold hover:bg-ink/90 transition-colors text-center">
               {cta || "شارك"}
-            </button>
+            </Link>
           ) : (
             <>
-              <Link to="/auctions/1" className="flex-[2] py-2 rounded-lg bg-ink text-white font-bold hover:bg-ink/90 transition-colors text-center">
+              <Link to={`/auctions/${id}`} className="flex-[2] py-2 rounded-lg bg-ink text-white font-bold hover:bg-ink/90 transition-colors text-center">
                 التفاصيل
               </Link>
               <button className="flex-1 py-2 rounded-lg border border-[#7D7D7D] text-[#333] font-bold hover:bg-black/5 transition-colors">
