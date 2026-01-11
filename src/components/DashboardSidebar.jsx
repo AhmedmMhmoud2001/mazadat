@@ -17,9 +17,8 @@ const DashboardSidebar = ({ activeKey }) => {
           <Link
             key={item.key}
             to={item.to}
-            className={`flex items-center justify-between gap-3 rounded-lg px-3 py-3 text-[20px] font-bold transition ${
-              active ? "bg-[#9E7731] text-white" : "text-[#1C1C28] hover:bg-white"
-            }`}
+            className={`flex items-center justify-between gap-3 rounded-lg px-3 py-3 text-[20px] font-bold transition ${active ? "bg-[#9E7731] text-white" : "text-[#1C1C28] hover:bg-white"
+              }`}
           >
             <span className="flex-1 text-right">{item.label}</span>
             <Icon className="w-6 h-6" />

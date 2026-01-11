@@ -83,93 +83,97 @@ const notifications = [
 
 const Transactions = () => {
   return (
-    <div className="bg-[#F5F2EB] min-h-screen pt-32 pb-12">
+    <div className="bg-[#F5F2EB] min-h-screen pt-32 pb-12 text-right">
       <section className="mx-auto max-w-7xl px-4">
-        <div className="grid lg:grid-cols-[1fr_357px] gap-12">
-          
-          {/* Main Content - على اليسار في RTL */}
-          <div className="space-y-6 order-2 lg:order-1">
-            
-            {/* Header with Button */}
-            <div className="flex items-center justify-between">
-             
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 items-start">
+
+          {/* Sidebar - Right side in RTL */}
+          <aside className="order-1 lg:sticky lg:top-32">
+            <DashboardSidebar activeKey="transactions" />
+          </aside>
+
+          {/* Main Content - Left side in RTL */}
+          <div className="space-y-8 order-2">
+
+            {/* Header */}
+            <div>
               <h2 className="text-[24px] font-bold text-[#1C1C28]">مشاركاتي في المزادات</h2>
             </div>
 
-            {/* Participation Table */}
-            <div className="bg-[#F5F2EB] rounded-lg shadow-[0px_10px_50px_0px_rgba(0,0,0,0.1)] p-5 space-y-3">
-              {/* Table Header */}
-              <div className="grid grid-cols-5 gap-10 p-3 text-center">
-                <div className="text-[22px] font-bold text-[#1C1C28]">اسم المزاد</div>
-                <div className="text-[22px] font-bold text-[#1C1C28]">السعر الحالي</div>
-                <div className="text-[22px] font-bold text-[#1C1C28]">مشاركتي</div>
-                <div className="text-[22px] font-bold text-[#1C1C28]">الحالة</div>
-                <div className="text-[22px] font-bold text-[#1C1C28]">الوقت المتبقي</div>
+            {/* Table Section */}
+            <div className="bg-white rounded-2xl shadow-soft overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-right border-collapse">
+                  <thead>
+                    <tr className="bg-white">
+                      <th className="px-6 py-5 text-[18px] font-bold text-[#1C1C28]">اسم المزاد</th>
+                      <th className="px-6 py-5 text-[18px] font-bold text-[#1C1C28] text-center">السعر الحالي</th>
+                      <th className="px-6 py-5 text-[18px] font-bold text-[#1C1C28] text-center">مشاركتي</th>
+                      <th className="px-6 py-5 text-[18px] font-bold text-[#1C1C28] text-center">الحالة</th>
+                      <th className="px-6 py-5 text-[18px] font-bold text-[#1C1C28] text-center">الوقت المتبقي</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 italic">
+                    {participation.map((row, index) => (
+                      <tr
+                        key={index}
+                        className={`${index % 2 === 0 ? "bg-white" : "bg-[#F5F2EB]/50"}`}
+                      >
+                        <td className="px-6 py-5 text-[16px] font-bold text-[#1C1C28]">{row.auction}</td>
+                        <td className="px-6 py-5 text-[16px] font-bold text-[#1C1C28] text-center leading-tight">
+                          {row.price}
+                        </td>
+                        <td className="px-6 py-5 text-[16px] font-bold text-[#1C1C28] text-center">{row.participants}</td>
+                        <td className="px-6 py-5 text-[16px] text-center">
+                          <span className="font-bold" style={{ color: row.status.color }}>
+                            {row.status.label}
+                          </span>
+                        </td>
+                        <td className="px-6 py-5 text-[16px] font-bold text-[#1C1C28] text-center">{row.time}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
-
-              <div className="h-[3px] bg-gray-300 rounded"></div>
-
-              {/* Table Rows */}
-              {participation.map((row, index) => (
-                <div
-                  key={index}
-                  className={`grid grid-cols-5 gap-10 p-3 rounded-lg items-center ${
-                    index % 2 === 1 ? "bg-[#F5F2EB]" : "bg-[#FAF9F5]"
-                  }`}
-                >
-                  <div className="text-[20px] text-[#1C1C28] text-center">{row.auction}</div>
-                  <div className="text-[20px] text-[#1C1C28] text-right">{row.price}</div>
-                  <div className="text-[20px] text-[#1C1C28] text-center">{row.participants}</div>
-                  <div className="text-center">
-                    <span className="text-[20px] font-normal" style={{ color: row.status.color }}>
-                      {row.status.label}
-                    </span>
-                  </div>
-                  <div className="text-[20px] text-[#1C1C28] text-center">{row.time}</div>
-                </div>
-              ))}
             </div>
 
             {/* Notifications Section */}
-            <div>
-              <h3 className="text-[24px] font-bold text-[#1C1C28] text-right mb-6">الإشعارات</h3>
+            <div className="space-y-6">
+              <h3 className="text-[24px] font-bold text-[#1C1C28]">الإشعارات</h3>
               <div className="space-y-4">
                 {notifications.map((note, index) => (
                   <div
                     key={index}
-                    className={`rounded-lg p-3 flex flex-col gap-3 ${
-                      note.borderColor
-                        ? `border border-[${note.borderColor}]`
-                        : "bg-[#F5F2EB] shadow-[0px_10px_50px_0px_rgba(0,0,0,0.1)]"
-                    }`}
+                    className={`bg-white rounded-lg p-5 transition-all shadow-soft border ${note.borderColor ? `border-[${note.borderColor}]` : "border-gray-100"
+                      }`}
                     style={note.borderColor ? { borderColor: note.borderColor } : {}}
                   >
-                    <div className="flex items-start gap-3">
-                      <button className="flex-shrink-0 text-gray-400 hover:text-gray-600">
-                        <FiX className="w-6 h-6" />
+                    <div className="relative">
+                      <button className="absolute top-0 left-0 text-gray-400 hover:text-[#1C1C28] transition-colors">
+                        <FiX size={18} />
                       </button>
-                      <div className="flex-1 flex items-center gap-3 justify-end p-3">
-                        <div className="font-bold text-[20px] text-[#1C1C28]">{note.title}</div>
-                        <div className="flex-shrink-0">
+
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-start gap-3">
+                          <h4 className="text-[18px] font-bold text-[#1C1C28]">{note.title}</h4>
                           {note.status === "success" ? (
-                            <FiCheckCircle className="w-6 h-6 text-green-600" />
+                            <FiCheckCircle className="text-green-600" size={22} />
                           ) : (
-                            <FiAlertTriangle className="w-6 h-6 text-yellow-600" />
+                            <FiAlertTriangle className="text-amber-600" size={22} />
                           )}
+                        </div>
+                        <p className="text-[14px] text-[#1C1C28]/80 text-right leading-relaxed pl-8">
+                          {note.description}
+                        </p>
+                        <div className="text-[12px] text-gray-400 text-right">
+                          {note.time}
                         </div>
                       </div>
                     </div>
-                    <p className="text-[16px] text-[#1C1C28] text-right">{note.description}</p>
-                    <p className="text-[14px] text-[rgba(28,28,40,0.4)] text-right">{note.time}</p>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
-
-          {/* Sidebar - على اليمين في RTL */}
-          <div className="order-1 lg:order-2">
-            <DashboardSidebar activeKey="transactions" />
           </div>
         </div>
       </section>

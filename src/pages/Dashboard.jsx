@@ -74,7 +74,7 @@ const Dashboard = () => {
   return (
     <div className="bg-[#F5F2EB] min-h-screen pt-32 pb-12">
       <section className="mx-auto max-w-6xl px-4 space-y-8">
-        
+
         {/* Profile Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -127,11 +127,10 @@ const Dashboard = () => {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`px-6 py-3 text-lg font-medium transition-all relative ${
-                  activeTab === tab.key
+                className={`px-6 py-3 text-lg font-medium transition-all relative ${activeTab === tab.key
                     ? "text-[#1C1C28] border-b-2 border-[#9E7731] -mb-[2px]"
                     : "text-gray-400 hover:text-[#1C1C28]"
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>

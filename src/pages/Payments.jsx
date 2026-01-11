@@ -25,16 +25,21 @@ const transactions = [
 
 const Payments = () => {
   return (
-    <div className="bg-[#F5F2EB] min-h-screen pt-32 pb-12">
+    <div className="bg-[#F5F2EB] min-h-screen pt-32 pb-12 text-right">
       <section className="mx-auto max-w-7xl px-4">
-        <div className="grid lg:grid-cols-[1fr_357px] gap-12">
-          
-          {/* Main Content - على اليسار في RTL */}
-          <div className="space-y-6 order-2 lg:order-1">
-            
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 items-start">
+
+          {/* Sidebar - Right */}
+          <aside className="order-1 lg:sticky lg:top-32">
+            <DashboardSidebar activeKey="wallet" />
+          </aside>
+
+          {/* Main Content - Left */}
+          <div className="space-y-8 order-2">
+
             {/* Header with Buttons */}
             <div className="flex items-center justify-between">
-              <button className="bg-[#9E7731] text-white px-6 py-3 rounded-lg font-bold text-[16px]">
+              <button className="bg-[#9E7731] text-white px-8 py-3 rounded-lg font-bold text-[18px] shadow-sm hover:bg-[#8A6629] transition-all">
                 المحفظة
               </button>
               <h2 className="text-[24px] font-bold text-[#1C1C28]">سجل المعاملات</h2>
@@ -45,7 +50,7 @@ const Payments = () => {
               {transactions.map((transaction, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-lg p-6 shadow-sm flex items-center justify-between hover:shadow-md transition-shadow"
+                  className="bg-white rounded-xl p-6 shadow-sm flex items-center justify-between hover:shadow-md transition-shadow border border-gray-100"
                 >
                   <div className="flex-1 text-right space-y-1">
                     <h3 className="text-[18px] font-bold text-[#1C1C28]">{transaction.title}</h3>
@@ -55,11 +60,6 @@ const Payments = () => {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Sidebar - على اليمين في RTL */}
-          <div className="order-1 lg:order-2">
-            <DashboardSidebar activeKey="wallet" />
           </div>
         </div>
       </section>
