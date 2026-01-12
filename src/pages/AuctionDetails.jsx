@@ -55,12 +55,14 @@ const AuctionDetails = () => {
       <div className="mx-auto max-w-7xl px-4 pt-20 lg:pt-32 pb-12 space-y-8">
 
         {/* Breadcrumb & Title */}
-        <div className="flex justify-end">
+        <div className="flex justify-start">
           <div className="text-right space-y-2">
             <div className="text-sm text-[#1C1C28] flex gap-2 justify-end opacity-70">
-              <span className="font-bold">تفاصيل المزاد</span>
+              <span>الرئيسية</span>
               <span>/ المزايدات</span>
-              <span>/ الرئيسية</span>
+              <span className="font-bold">/ تفاصيل المزاد </span>
+
+
             </div>
             <h1 className="text-[24px] lg:text-[32px] font-bold">قصر في وسط المدينة</h1>
           </div>

@@ -46,7 +46,7 @@ const LiveAuction = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_621px] gap-6">
 
           {/* LEFT COLUMN - Bidding Section (Bottom on Mobile, Left on Desktop) */}
-          <div className="space-y-6 order-2 lg:order-1">
+          <div className="space-y-6 order-1 lg:order-2">
             {/* Bidding Controls */}
             <div className="bg-white rounded-2xl shadow-[0px_10px_50px_0px_rgba(0,0,0,0.05)] p-4 lg:p-6 space-y-6 border border-white/50">
               <div className="grid grid-cols-3 gap-2 lg:gap-4 text-center">
@@ -135,7 +135,7 @@ const LiveAuction = () => {
           </div>
 
           {/* RIGHT COLUMN - Image and Product Info (Top on Mobile, Right on Desktop) */}
-          <div className="space-y-6 order-1 lg:order-2 text-right">
+          <div className="space-y-6 order-2 lg:order-1 text-right">
             {/* Main Image */}
             <div className="relative h-[300px] lg:h-[610px] rounded-2xl overflow-hidden shadow-xl border-4 border-white">
               <img src={auctionFrame} alt="المزاد" className="w-full h-full object-cover" />
@@ -166,33 +166,40 @@ const LiveAuction = () => {
               <div
                 key={index}
                 className={`flex flex-col gap-3 p-4 rounded-2xl transition-all ${bidder.isHighest
-                    ? "bg-[#02B57F08] border-r-4 border-[#02B57F]"
-                    : "bg-gray-50/50 border-r-4 border-transparent"
+                  ? "bg-[#02B57F08] border-r-4 border-[#02B57F]"
+                  : "bg-gray-50/50 border-r-4 border-transparent"
                   }`}
               >
                 <div className="flex items-center justify-between">
-                  {bidder.isHighest ? (
-                    <div className="bg-[#02B57F] text-white px-3 py-1 rounded-full text-[10px] lg:text-[12px] font-bold shadow-sm shadow-[#02B57F30]">
-                      الأعلى حالياً
-                    </div>
-                  ) : <div />}
+                  <div>
 
+                    {bidder.isHighest ? (
+                      <div className="bg-[#02B57F] text-white px-3 py-1 rounded-full text-[10px] lg:text-[12px] font-bold shadow-sm shadow-[#02B57F30]">
+                        الأعلى حالياً
+                      </div>
+                    ) : <div />}
+                    <div className="flex items-center gap-2 mt-2">
+                      <p className="text-[14px] lg:text-[16px] font-bold text-[#1C1C28]">{bidder.name}</p>
+                      <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500">
+                        <FiUser className="w-5 h-5" />
+                      </div>
+                    </div>
+                  </div>
                   <div className="flex items-center gap-3">
                     <div className="text-right">
-                      <p className="text-[14px] lg:text-[16px] font-bold text-[#1C1C28]">{bidder.name}</p>
+
                       <div className="flex items-center gap-1 text-[10px] lg:text-[12px] text-[#1C1C28]/40">
                         <FiClock className="w-3 h-3" />
                         <span>منذ {bidder.time}</span>
                       </div>
                     </div>
-                    <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500">
-                      <FiUser className="w-5 h-5" />
-                    </div>
+
                   </div>
                 </div>
                 <div className="flex items-center justify-start gap-1 text-[#9E7731] border-t border-gray-100 pt-2 mt-1">
-                  <span className="text-[14px] lg:text-[16px] font-medium opacity-70">جنيه مصري</span>
                   <span className="text-[20px] lg:text-[24px] font-black">{bidder.amount}</span>
+                  <span className="text-[14px] lg:text-[16px] font-medium opacity-70">جنيه مصري</span>
+
                 </div>
               </div>
             ))}
